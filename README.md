@@ -1,4 +1,4 @@
-### Exercise One.
+### Exercise One
 
 ## 1 step:
 
