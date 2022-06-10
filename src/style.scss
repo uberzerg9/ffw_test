@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'mont-reg';
+    src: url('./fonts/montserrat_regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+// variables
+$grayBlue: #bcc7dc;
+$black: #000000;
+$white: #ffffff;
+$lightGrayBlue: #bdc8dc;
+$orange: #ff4e07;
+$green: #00a650;
+$pink: #fe7fc2;
+$blue: #006dfe;
+$gray: #99a0b0;
+$darkGray: #8f8f8f;
+
+* {
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
+body,
+html {
+    max-width: 1920px;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-family: 'mont-reg', sans-serif;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+a,
+button {
+    padding: 0;
+    margin: 0;
+}
+
+#root {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 814px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    @media(max-width: 992px) {
+        max-width: 660px;
+    }
+}
+
+.sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    .title {
+        margin: 0 25px 0 0;
+    }
+    @media(max-width: 992px) {
+        padding: 0;
+    }
+    @media(max-width: 767px) {
+        .title {
+            font-size: 20px;
+        }
+    }
+}
+
+.navbar {
+    &__link {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 700;
+        color: $orange;
+        transition: .3s;
+        &.active {
+            color: $lightGrayBlue;
+        }
+        &:last-child {
+            margin: 0 0 0 15px;
+        }
+    }
+    @media(max-width: 767px) {
+        padding: 25px 0 0;
+        &__link {
+            font-size: 12px;
+        }
+    }
+}
+
+.page {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid $grayBlue;
+    padding: 75px 60px;
+    margin: 40px auto 0;
+    &#buy-fonts {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media(max-width: 992px) {
+        padding: 35px 20px;
+    }
+    @media(max-width: 767px) {
+        overflow-y: auto;
+        height: calc(100vh / 2);
+    }
+}
+
+.fonts-list {
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "a b"
+    "a c"; 
+    border: none;
+    padding: 0;
+    .input-wrapper {
+        display: flex;
+        max-width: 280px;
+        margin: 0 0 0 20px;
+        label,
+        input {
+            cursor: pointer;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            font-size: 20px;
+            line-height: 24px;
+            margin: 0 0 0 10px;
+            width: 90%; 
+        }
+        input {
+            background-color: $gray;
+            margin: 4px 0 0;
+            appearance: none;
+            font: inherit;
+            color: currentColor;
+            width: 13px;
+            height: 13px;
+            border: 0 solid;
+            border-radius: 50%;
+            &:checked {
+                opacity: .5;
+            }
+            &:checked ~ label {
+                opacity: .5;
+            }
+            &:checked ~ .font__logo {
+                border: 1px solid $darkGray;
+            } 
+        }
+    }
+    .font {
+        display: flex;
+        align-items: center;
+        &:nth-child(1) {
+            grid-area: a;
+            flex-wrap: wrap;
+            .font__title {
+                font-size: 30px;
+            }
+            .font__logo {
+                max-width: 120px;
+                height: 120px;
+            }
+            .input-wrapper {
+                width: 100%;
+                max-width: 240px;
+                margin: 20px 0 0;
+                label {
+                    width: 70%;
+                }
+            }
+        }
+        &:nth-child(2) {
+            grid-area: b;
+        }
+        &:nth-child(3) {
+            grid-area: c;
+        }
+        &__logo {
+            border-radius: 15px;
+            outline: 1px solid $black;
+            outline-offset: 3px;
+            max-width: 90px;
+            width: 100%;
+            height: 90px;
+            padding: 10px;
+            display: flex;
+            align-items: flex-end;
+            margin: 0 0 0 6px;
+            &.green {
+                background-color: $green;
+            }
+            &.pink {
+                background-color: $pink;
+            }
+            &.blue {
+                background-color: $blue;
+            }
+        }
+        &__title {
+            color: $white;
+            font-weight: 700;
+            opacity: .3;
+            font-size: 20px;
+        }
+    }
+    @media(max-width: 992px) {
+        grid-auto-columns: 1fr; 
+        grid-template-rows: 1fr 0fr 0fr;
+        .input-wrapper {
+            max-width: 100%;
+            label {
+                width: 100%;
+            }
+        }
+        .font {
+            margin: 0 0 30px;
+            &:nth-child(1) {
+                grid-area: 1 / 1 / 2 / 3;
+                flex-wrap: nowrap;
+                .font__logo {
+                    height: 90px;
+                    max-width: 90px;
+                }
+                .font__title {
+                    font-size: 20px;
+                }
+                .input-wrapper {
+                    display: flex;
+                    margin: 0 0 0 20px;
+                    max-width: 100%;
+                    label {
+                        width: 90%;
+                    }
+                }
+            }
+            &:nth-child(2) {
+                grid-area: 2 / 1 / 3 / 3; 
+            }
+            &:nth-child(3) {
+                grid-area: 3 / 1 / 4 / 3;
+                margin: 0;
+            }
+        }
+    }
+    @media(max-width: 767px) {
+        .input-wrapper {
+            margin: 15px 0 0;
+            label {
+                font-size: 16px;
+            }
+        }
+        .font {
+            flex-direction: column;
+            align-items: flex-start;
+            &:nth-child(1) {
+                .input-wrapper {
+                    margin: 15px 0 0;
+                }
+            }
+        }
+    }
+}
