@@ -1,4 +1,4 @@
-### Instalation guide
+### Exercise One.
 
 ## 1 step:
 
@@ -29,3 +29,14 @@ Browser sync (need to instal):
 ```js
 browser-sync start --proxy 'domain-name' (open server required)
 ```
+
+
+### Exercise Two
+
+Open terminal in directory and use this comand:
+
+```js
+    node exercise_two.js
+```
+
+Output will appear in terminal.
