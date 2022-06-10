@@ -10,15 +10,21 @@ Need to install node-modules:
 
 ## 2 step:
 
-First webpack build
+First webpack build:
 
 ```js
     npm run build
 ```
 
+Watch mode:
+
+```js
+    npm run watch
+```
+
 ## 3 step:
 
-Browser sync (need to instal)
+Browser sync (need to instal):
 
 ```js
 browser-sync start --proxy 'domain-name' (open server required)
